@@ -1,0 +1,45 @@
+server_name: "matrix.YOUR_DOMAIN"
+pid_file: /data/homeserver.pid
+presence:
+  enabled: true
+
+listeners:
+  - port: 8008
+    tls: false
+    type: http
+    x_forwarded: true
+    resources:
+      - names: [client, federation]
+        compress: false
+
+database:
+  name: psycopg2
+  args:
+    user: synapse
+    password: synapse_password_change_me
+    database: synapse
+    host: db
+    cp_min: 5
+    cp_max: 10
+
+public_baseurl: "https://matrix.YOUR_DOMAIN:8443"
+enable_registration: true
+registration_shared_secret: "CHANGE_ME_TO_A_RANDOM_STRING"
+
+# Log configuration
+log_config: "/data/matrix.YOUR_DOMAIN.log.config"
+
+media_store_path: /data/media_store
+
+# Performance optimizations for 8GB RAM host
+caches:
+  global_factor: 2.0
+
+# Security
+allow_guest_access: false
+
+# Federation
+# Note: For federation on 8443, you may need a .well-known file
+# or specific SRV records on YOUR_DOMAIN.
+federation_domain_resource_usage_stats:
+  enabled: true

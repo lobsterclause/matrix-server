@@ -1,0 +1,13 @@
+# Docker
+/letsencrypt/
+/config/synapse/media_store/
+/config/synapse/*.log.*
+/config/synapse/signing.key
+*.log
+.DS_Store
+
+# Data volumes
+postgres_data/
+
+# Local setup
+setup.sh
