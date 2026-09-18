@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="docs/assets/matrix-homeserver-banner.png" alt="Matrix Homeserver — Private chat. Federated by design." width="100%" />
+</p>
+
 # Matrix Homeserver (Synapse + Element + Traefik)
 
 A production-grade, containerized Matrix stack with automated SSL (Let's Encrypt), PostgreSQL performance tuning, and the Element web client.
